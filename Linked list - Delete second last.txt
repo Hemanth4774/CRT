@@ -1,0 +1,92 @@
+Linked list - Delete second last
+Write a Program to delete the second last element from the list. If deletion of second last element is not possible, print "Deletion of second last element is not possible", Otherwise print the list after deleting the second last element.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+2
+3
+4
+-1
+Sample Output 0
+
+Before deleting:
+1 2 3 4
+After deleting:
+1 2 4
+Sample Input 1
+
+23
+34
+55
+12
+66
+45
+33
+-1
+Sample Output 1
+
+Before deleting:
+23 34 55 12 66 45 33
+After deleting:
+23 34 55 12 66 33
+
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.next=None
+class dellastsec:
+    def __init__(self):
+        self.head=self.tail=None
+    def create(self,x):
+        n=Node(x)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.next=n
+            self.tail=n
+    def befdel(self):
+        temp=self.head
+        print("Before deleting:")
+        while temp!=None:
+            print(temp.data,end=" ")
+            temp=temp.next
+        print()
+    def dellsec(self):
+        if self.head==None:
+            print("Deletion of second last element is not possible")
+            return
+        temp1=self.head
+        temp2=self.head.next
+        while temp2.next.next!=None:
+            temp1=temp1.next
+            temp2=temp2.next
+        temp1.next=temp2.next
+    def show(self):
+        temp=self.head
+        print("After deleting:")
+        while temp!=None:
+            print(temp.data,end=" ")
+            temp=temp.next
+s1=dellastsec()
+while True:
+    x=int(input())
+    if x==-1:
+        break
+    else:
+        s1.create(x)
+s1.befdel()
+s1.dellsec()
+s1.show()
