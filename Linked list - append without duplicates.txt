@@ -1,0 +1,78 @@
+Linked list - append without duplicates
+
+Write a Program to insert the given values into a list without duplicates.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+2
+3
+2
+1
+3
+-1
+Sample Output 0
+
+1
+2
+3
+Sample Input 1
+
+1
+2
+3
+2
+-1
+Sample Output 1
+
+1
+2
+3
+
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.next=None
+class noduplicates:
+    def __init__(self):
+        self.head=self.tail=None
+    def insert(self,x):
+        n=Node(x)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            temp=self.head
+            while temp!=None:
+                if temp.data==x:
+                    return
+                temp=temp.next
+            self.tail.next=n
+            self.tail=n
+    def show(self):
+        if self.head==None:
+            return
+        else:
+            temp=self.head
+            while temp!=None:
+                print(temp.data)
+                temp=temp.next
+s1=noduplicates()
+while True:
+    x=int(input())
+    if x==-1:
+        break
+    else:
+        s1.insert(x)
+s1.show()
