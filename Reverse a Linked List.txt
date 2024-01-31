@@ -75,15 +75,12 @@ class delfromlast:
     def reverse(self,head):
         if self.head==None:
             return
-        print()
-        print("Reverse Order:")
         if head!=None:
-            self._reverse(head)
-    def _reverse(self,temp):
-        if temp==None:
-            return
-        self._reverse(temp.next)
-        print(temp.data,end=" ")
+            if head==self.head:
+                print()
+                print("Reverse Order:")
+            self.reverse(head.next)
+            print(head.data,end=" ")
 s1=delfromlast()
 while True:
     x=int(input())
